@@ -22,7 +22,7 @@ private:
         c.resize(len);
     }
 
-    // the lowest bit of 1
+    // the lowest bit of x
     int lowbit(int x) {
         return x & (-x);
     }
