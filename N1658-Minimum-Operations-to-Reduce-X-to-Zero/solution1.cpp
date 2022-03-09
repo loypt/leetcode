@@ -22,18 +22,18 @@ public:
         if (sum < x){
             return -1;
         }
-        int left = 0, right = 0, total = 0;
+        int fast = 0, slow = 0, total = 0;
         int ans = INT_MAX;
-        while (left < len){
-            total += nums[left];
+        while (fast < len){
+            total += nums[fast];
             while (sum - total < x){
-                total -= nums[right];
-                right++;
+                total -= nums[slow];
+                slow++;
             }
             if (sum-total==x){
-                ans = min(ans, len-(left-right+1));
+                ans = min(ans, len-(fast-slow+1));
             }
-            left++;
+            fast++;
         }
         return ans == INT_MAX ? -1 : ans;
     }
